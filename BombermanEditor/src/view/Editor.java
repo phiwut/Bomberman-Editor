@@ -58,10 +58,10 @@ public class Editor {
 		
 		JPanel Toolbox = new JPanel();
 		Links.add(Toolbox, BorderLayout.NORTH);
-		Toolbox.setLayout(new BorderLayout(0, 0));
+		Toolbox.setLayout(new GridLayout(0, 1, 0, 0));
 		
 		JPanel Erde = new JPanel();
-		Toolbox.add(Erde, BorderLayout.NORTH);
+		Toolbox.add(Erde);
 		
 		JButton btnErde = new JButton("Erde");
 		btnErde.addActionListener(new ActionListener() {
@@ -72,7 +72,7 @@ public class Editor {
 		btnErde.setVerticalAlignment(SwingConstants.TOP);
 		
 		JPanel Fels = new JPanel();
-		Toolbox.add(Fels, BorderLayout.CENTER);
+		Toolbox.add(Fels);
 		
 		JButton btnFels = new JButton("Fels");
 		btnFels.addActionListener(new ActionListener() {
@@ -82,7 +82,7 @@ public class Editor {
 		Fels.add(btnFels);
 		
 		JPanel Luft = new JPanel();
-		Toolbox.add(Luft, BorderLayout.SOUTH);
+		Toolbox.add(Luft);
 		
 		JButton btnLuft = new JButton("Luft");
 		btnLuft.addActionListener(new ActionListener() {
@@ -98,6 +98,7 @@ public class Editor {
 		JButton btnNeu = new JButton("Neu");
 		btnNeu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		Buttons.add(btnNeu);
