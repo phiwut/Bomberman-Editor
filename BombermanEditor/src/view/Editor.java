@@ -117,6 +117,7 @@ public class Editor {
 		for (int i = 0; i < 256; i++) {
 			Feld.add(new JButton(Integer.toString(i)));
 		}
+		
 	}
 
 }
