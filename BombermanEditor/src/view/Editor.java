@@ -112,7 +112,11 @@ public class Editor {
 				
 		JPanel Feld = new JPanel();
 		frame.getContentPane().add(Feld, BorderLayout.CENTER);
-		Feld.setLayout(new GridLayout(1, 0, 0, 0));
+		Feld.setLayout(new GridLayout(0,16));
+		
+		for (int i = 0; i < 256; i++) {
+			Feld.add(new JButton(Integer.toString(i)));
+		}
 	}
 
 }
