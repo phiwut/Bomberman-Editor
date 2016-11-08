@@ -4,19 +4,19 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
+import java.awt.Button;
+
 import javax.swing.JPanel;
-import java.awt.CardLayout;
-import java.awt.FlowLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import javax.swing.BoxLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.SwingConstants;
 
-public class Editor {
+public class Editor implements ActionListener {
+	
+	protected int _Feldgroesse;
 
 	private JFrame frame;
 
@@ -47,6 +47,8 @@ public class Editor {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		_Feldgroesse = 16;
+		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 742, 524);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -112,12 +114,22 @@ public class Editor {
 				
 		JPanel Feld = new JPanel();
 		frame.getContentPane().add(Feld, BorderLayout.CENTER);
-		Feld.setLayout(new GridLayout(0,16));
+		Feld.setLayout(new GridLayout(0,_Feldgroesse));
 		
-		for (int i = 0; i < 256; i++) {
-			Feld.add(new JButton(Integer.toString(i)));
+		for (int i = 0; i < _Feldgroesse; i++) {
+			for (int j = 0; j < _Feldgroesse; j++) {
+				Button b = new Button();        
+                b.addActionListener(this);
+                Feld.add(b);
+			}
 		}
-		
 	}
+	
+	public void actionPerformed(ActionEvent ae)
+    {        
+        Button b = new Button();
+        b = (Button) ae.getSource();
+        b.setBackground(new Color(128, 0, 0));
+    }
 
 }
