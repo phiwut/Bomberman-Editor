@@ -17,6 +17,7 @@ import javax.swing.SwingConstants;
 public class Editor implements ActionListener {
 	
 	protected int _Feldgroesse;
+	protected Color _BlockAuswahl;
 
 	private JFrame frame;
 
@@ -48,6 +49,7 @@ public class Editor implements ActionListener {
 	 */
 	private void initialize() {
 		_Feldgroesse = 16;
+		_BlockAuswahl = Color.DARK_GRAY;
 		
 		frame = new JFrame();
 		frame.setBounds(100, 100, 742, 524);
@@ -68,6 +70,7 @@ public class Editor implements ActionListener {
 		JButton btnErde = new JButton("Erde");
 		btnErde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				_BlockAuswahl = Color.DARK_GRAY;
 			}
 		});
 		Erde.add(btnErde);
@@ -79,6 +82,7 @@ public class Editor implements ActionListener {
 		JButton btnFels = new JButton("Fels");
 		btnFels.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				_BlockAuswahl = Color.BLACK;
 			}
 		});
 		Fels.add(btnFels);
@@ -89,6 +93,7 @@ public class Editor implements ActionListener {
 		JButton btnLuft = new JButton("Luft");
 		btnLuft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				_BlockAuswahl = new Color(240, 240, 240);
 			}
 		});
 		Luft.add(btnLuft);
@@ -129,7 +134,7 @@ public class Editor implements ActionListener {
     {        
         Button b = new Button();
         b = (Button) ae.getSource();
-        b.setBackground(new Color(128, 0, 0));
+        b.setBackground(_BlockAuswahl);
     }
 
 }
