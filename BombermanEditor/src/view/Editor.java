@@ -64,36 +64,55 @@ public class Editor implements ActionListener {
 		Links.add(Toolbox, BorderLayout.NORTH);
 		Toolbox.setLayout(new GridLayout(0, 1, 0, 0));
 		
+		// Erde
 		JPanel Erde = new JPanel();
 		Toolbox.add(Erde);
-		
 		JButton btnErde = new JButton("Erde");
+		
+		// Fels
+		JPanel Fels = new JPanel();
+		Toolbox.add(Fels);
+		JButton btnFels = new JButton("Fels");
+		
+		// Luft
+		JPanel Luft = new JPanel();
+		Toolbox.add(Luft);
+		JButton btnLuft = new JButton("Luft");
+		
+		
+		// Erde Events
 		btnErde.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				_BlockAuswahl = Color.DARK_GRAY;
+				_BlockAuswahl = new Color(186, 114, 63);
+				
+				btnErde.setEnabled(false);
+				btnFels.setEnabled(true);
+				btnLuft.setEnabled(true);
 			}
 		});
 		Erde.add(btnErde);
 		btnErde.setVerticalAlignment(SwingConstants.TOP);
-		
-		JPanel Fels = new JPanel();
-		Toolbox.add(Fels);
-		
-		JButton btnFels = new JButton("Fels");
+
+		// Fels Events
 		btnFels.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				_BlockAuswahl = Color.BLACK;
+				_BlockAuswahl = new Color(48, 48, 48);
+				
+				btnErde.setEnabled(true);
+				btnFels.setEnabled(false);
+				btnLuft.setEnabled(true);
 			}
 		});
 		Fels.add(btnFels);
 		
-		JPanel Luft = new JPanel();
-		Toolbox.add(Luft);
-		
-		JButton btnLuft = new JButton("Luft");
+		// Luft Events
 		btnLuft.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				_BlockAuswahl = new Color(240, 240, 240);
+				
+				btnErde.setEnabled(true);
+				btnFels.setEnabled(true);
+				btnLuft.setEnabled(false);
 			}
 		});
 		Luft.add(btnLuft);
